@@ -27,21 +27,21 @@ const keyArr = Object.keys(newObject);
 const printAllVals = function(obj, prop) {
 	if (typeof obj[prop] == 'object') {
 		Object.keys(obj[prop]).forEach((key) => {
-			printValues(obj[prop], key);
+			printAllVals(obj[prop], key);
 		})
 	} else { 
-		console.log(obj[prop]);
+		console.log(prop, ': ', obj[prop]);
 	}
 }
 
 // Iterate over first branch of properties, call printAllVals
 // recursive function with each branch and entire object as object to assess
-newObject.forEach((key) => {
+keyArr.forEach((key) => {
     printAllVals(newObject, key);
 });
 
-// value1
-// value2
-// value3
-// value4
+// key1 :  value1
+// key2 :  value2
+// key3 :  value3
+// key4 :  value4
 // undefined (execution complete; no return value)
